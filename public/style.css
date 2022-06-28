@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  background-color: rgb(239 238 238)
+}
+
 body {
   margin: 0;
 }
@@ -5,6 +10,7 @@ body {
 p,
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 }
 
 ul, ol, li {
@@ -16,4 +22,43 @@ ul, ol, li {
 :before,
 :after {
   box-sizing: border-box;
+}
+
+.main {
+  flex: 1;
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(239 238 238)
+}
+
+.main__header {
+  margin-bottom: auto;
+}
+
+.main__todos {
+  margin-bottom: auto;
+}
+
+.todo {
+  background-color: #afccff;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.todo-delete {
+  position: absolute;
+  right: 10px;
+  background-color: #fa4040;
+  color: white;
+  border-radius: 5px;
+  padding: 0 5px;
 }

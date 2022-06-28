@@ -1,7 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
+const connectDB = require('./config/config');
 
 const {PORT} = require('./constants/server');
-
 const rootRouter = require('./routes/todos');
 
 const server = express();
@@ -13,6 +15,11 @@ server.disable('etag');
 
 server.use('/api/v1/todos', rootRouter);
 
-server.listen(PORT, () => {
-  console.log('server is listening...')
-});
+(async () => {
+  try {
+    await connectDB(process.env.MONGO_URL);
+    server.listen(PORT, () => console.log('server is listening...'));
+  } catch (e) {
+    console.log('couldnt connect to DB');
+  }
+})();
